@@ -24,4 +24,8 @@ require_once __DIR__ . '/../php/helpers/vite-env.php';
         <link rel="stylesheet" href="<?= AssetHelper::hashedAssetURL("css") ?>">
         <script src="<?= AssetHelper::hashedAssetURL("js") ?>" type="module" defer></script>
     <?php endif; ?>
+      <!-- Google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>

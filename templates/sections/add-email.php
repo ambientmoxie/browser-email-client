@@ -5,7 +5,7 @@
     </div>
 
     <div class="block-multiling block-multiling--layout2">
-        <p class="block-multiling__item block-multiling__item--fr">Utilisez la section ci-dessous afin d'ajouter une ou plusieurs adresses email à la liste d'envoi. Les entrées doivent être séparées par une virgule (exemple : johndoe@email.com, janedoe@email.com, etc.). Bientôt: Importer de fichier .csv.</p>
+        <p class="block-multiling__item block-multiling__item--fr">Utilisez la section ci-dessous afin d'ajouter une ou plusieurs adresses email à la liste d'envoi. Les entrées doivent être séparées par une virgule (exemple : johndoe@email.com, janedoe@email.com, etc.). Bientôt: Import de fichiers .csv.</p>
         <p class="block-multiling__item block-multiling__item--en">Use the section below to add one or more email addresses to the mailing list. Emails must be separated by a comma (e.g. johndoe@email.com, janedoe@email.com, etc.). Coming soon: ability to import a .csv file.</p>
     </div>
 

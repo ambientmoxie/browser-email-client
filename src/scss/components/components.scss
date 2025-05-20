@@ -109,7 +109,7 @@ ul li {
     }
   }
 
-  .custom-form__group--message{
+  .custom-form__group--message {
     height: 60rem;
     label {
       padding-top: 0.6rem;
@@ -146,10 +146,7 @@ p#display-more {
 }
 
 .thm-btn {
-  // @include reset-button;
-
   cursor: pointer;
-  // line-height: inherit;
   text-transform: uppercase;
   font-size: var(--font-size-sm);
   font-family: var(--font-primary);
@@ -157,7 +154,6 @@ p#display-more {
   background-color: var(--color-gray-1);
   padding: 0.3rem;
   font-weight: 500;
-  
 }
 
 // Cartouche
@@ -176,5 +172,35 @@ p#display-more {
 
   &.feedback-box--error {
     background-color: var(--colors-alert);
+  }
+}
+
+#app-logo {
+  text-align: center;
+  svg {
+    width: 14rem;
+    height: auto;
+  }
+}
+
+.copyright-footer {
+  display: flex;
+  align-items: center;
+  padding-top: 0.5rem;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border-primary);
+  .copyright-footer__text {
+    color: var(--color-gray);
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500;
+  }
+
+  .copyright-footer__version {
+    padding: 0 0.5rem;
+    font-size: var(--font-size-md);
+    font-family: var(--font-tertiary);
+    border: 1px solid var(--color-border-primary);
   }
 }
