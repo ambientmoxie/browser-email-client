@@ -1,0 +1,180 @@
+@use "../utils/mixins" as *;
+
+// Header
+// ------------------------
+header {
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-bottom: 1.5px solid black;
+}
+
+// Email-list
+// ------------------------
+ul li {
+  @include reset-list;
+}
+
+.listed-items {
+  border: 1px solid var(--color-border-secondary);
+  border-left: 3px solid var(--color-border-secondary);
+  border-top: 1px dashed var(--color-border-secondary);
+
+  > li:not(:last-of-type) {
+    border-bottom: 1px solid var(--color-border-secondary);
+  }
+
+  .listed-item {
+    display: flex;
+    padding: 0.3rem 0.5rem;
+    justify-content: space-between;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+
+    .listed-item__entry--empty {
+      color: var(--colors-alert);
+      font-weight: 700;
+    }
+  }
+
+  .list-controls .list-controls__group {
+    li {
+      display: flex;
+      height: 3rem;
+      .list-controls__spacer,
+      .list-controls__label {
+        border-right: 1px solid var(--color-border-secondary);
+      }
+
+      > * {
+        flex: 1;
+        max-width: 13rem;
+        padding: 0.3rem 0.5rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    > li:not(:last-of-type) {
+      border-bottom: 1px solid var(--color-border-secondary);
+    }
+  }
+}
+
+// Form
+// ------------------------
+.custom-form {
+  border: 1px solid var(--color-border-secondary);
+  border-left: 3px solid var(--color-border-secondary);
+  border-top: 1px dashed var(--color-border-secondary);
+  font-family: var(--font-primary);
+  input {
+    @include reset-input;
+  }
+  textarea {
+    @include reset-textarea;
+  }
+
+  .custom-form__group {
+    display: flex;
+    height: 3rem;
+    &:not(:last-of-type) {
+      border-bottom: 1px solid var(--color-border-secondary);
+    }
+    > * {
+      flex: 1;
+      padding: 0.3rem 0.5rem;
+    }
+    > label {
+      max-width: 13rem;
+      border-right: 1px solid var(--color-border-secondary);
+      font-weight: 700;
+    }
+
+    > * {
+      display: flex;
+      align-items: center;
+    }
+
+    textarea,
+    input {
+      font-family: var(--font-primary);
+      font-size: var(--font-size-rg);
+      &::placeholder {
+        font-family: inherit;
+        font-size: inherit;
+      }
+    }
+  }
+
+  .custom-form__group--message{
+    height: 60rem;
+    label {
+      padding-top: 0.6rem;
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+}
+
+// Misc
+// ------------------------
+input[type="file"] {
+  display: none;
+}
+
+p#no-email-alert {
+  color: var(--colors-alert);
+  font-weight: 500;
+}
+
+p#display-more {
+  color: var(--colors-success);
+  text-decoration: underline;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.header-paragraph {
+  padding-bottom: 0.4rem;
+  border-bottom: 1.5px solid var(--colors-border);
+  h1 {
+    font-size: var(--font-size-rg);
+  }
+}
+
+.thm-btn {
+  // @include reset-button;
+
+  cursor: pointer;
+  // line-height: inherit;
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-primary);
+  border: 1px solid var(--color-border-primary);
+  background-color: var(--color-gray-1);
+  padding: 0.3rem;
+  font-weight: 500;
+  
+}
+
+// Cartouche
+.feedback-box {
+  font-family: var(--font-tertiary);
+  text-transform: uppercase;
+  color: white;
+  padding: var(--space-sm);
+  max-width: 30rem;
+  margin: auto;
+  text-align: center;
+
+  &.feedback-box--success {
+    background-color: var(--colors-green);
+  }
+
+  &.feedback-box--error {
+    background-color: var(--colors-alert);
+  }
+}

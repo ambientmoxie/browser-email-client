@@ -1,0 +1,16 @@
+@use "../utils/mixins" as *;
+
+#wrapper {
+  display: grid;
+  max-width: 80rem;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  margin: var(--space-md) auto;
+  background-color: var(--colors-background);
+
+  > section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-rg);
+  }
+}

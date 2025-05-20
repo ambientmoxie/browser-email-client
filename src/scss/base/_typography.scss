@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "SempioneGrotesk";
+  src: url("/src/fonts/SempioneGrotesk-Medium.woff2") format("woff2"),
+    url("/src/fonts/SempioneGrotesk-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 90%;
+}
+
+@font-face {
+  font-family: "SempioneGrotesk";
+  src: url("/src/fonts/SempioneGrotesk-Regular.woff2") format("woff2"),
+    url("/src/fonts/SempioneGrotesk-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 90%;
+}
+
+@font-face {
+  font-family: "Nitti";
+  src: url("/src/fonts/Nitti.woff2") format("woff2"),
+    url("/src/fonts/Nitti.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 90%;
+}
+
+@font-face {
+  font-family: "Georgia";
+  src: url("/src/fonts/Georgia.woff2") format("woff2"),
+    url("/src/fonts/Georgia.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  ascent-override: 90%;
+}
+
