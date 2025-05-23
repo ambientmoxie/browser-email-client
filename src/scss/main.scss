@@ -114,6 +114,7 @@ h2 {
   align-items: center;
   padding-top: 0.5rem;
   justify-content: space-between;
+  border-top: 1px solid var(--color-text);
   .copyright-footer__text {
     color: var(--color-gray);
     text-transform: uppercase;
@@ -126,7 +127,7 @@ h2 {
     padding: 0 0.5rem;
     font-size: var(--font-size-md);
     font-family: var(--font-secondary);
-    border: 1px solid var(--color-border-primary);
+    border: 1px solid var(--color-border);
   }
 }
 

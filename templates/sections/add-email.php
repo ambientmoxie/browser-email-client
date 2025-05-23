@@ -19,7 +19,7 @@
         <div class="custom-form__group custom-form__group--upload" data-enabled="false">
             <div class="form__upload-wrapper">
                 <input type="file" id="documents" name="documents[]" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.zip">
-                <label class="custom-button" id="file" for="documents">Ajouter des documents</label>
+                <label class="custom-button" id="file" for="documents">Add .csv document</label>
             </div>
         </div>
         <div class="custom-form__group custom-form__group--submit">
