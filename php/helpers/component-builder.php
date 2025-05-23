@@ -48,9 +48,9 @@ class ComponentBuilder
     private static function createListItem(string $wording, bool $isDefault = false): string
     {
         $safeWording = htmlspecialchars($wording);
-        $spanClass = 'listed-item__entry' . ($isDefault ? ' listed-item__entry--empty' : '');
+        $spanClass = 'listed-items__email' . ($isDefault ? ' listed-items__email--empty' : '');
 
-        $html = '<li class="listed-item">
+        $html = '<li class="listed-items__item listed-items__item--entry">
                     <span class="' . $spanClass . '">' . $safeWording . '</span>';
 
         if (!$isDefault) {
@@ -64,14 +64,9 @@ class ComponentBuilder
 
     private static function createListController(): string
     {
-        return '
-        <li class="list-controls">
-            <ul class="list-controls__group">' .
-            self::renderListHeader() .
+        return
             self::overflowButtonHTML() .
-            self::clearButtonHTML() .
-            '</ul>
-        </li>';
+            self::clearButtonHTML();
     }
 
     public static function overflowChecker(int $visibleLimit): array
@@ -103,25 +98,14 @@ class ComponentBuilder
             'show_all' => $isUnrolled ? '1' : '0'
         ]));
         return '
-            <div class="listed-item__button-wrap">
+            
                 <button
                  hx-post="api/delete-email.php"
                 hx-vals=\'' . $jsonVals . '\'
-                hx-target=".listed-items"
+                hx-target="#email-list"
                 hx-swap="innerHTML"
-                class="listed-item__button thm-btn"">delete</button>
-            </div>';
-    }
-
-    private static function renderListHeader(): string
-    {
-        return '
-            <li class="list-controls__header">
-                <div class="list-controls__spacer"></div>
-                <div class="list-controls__title">
-                    <h2>Controllers</h2>
-                </div>
-            </li>';
+                class="listed-items__button custom-button"">delete</button>
+            ';
     }
 
     private static function overflowButtonHTML(): string
@@ -131,36 +115,30 @@ class ComponentBuilder
         $isEnable = $state["overflow"] ? "true" : "false";
 
         return '
-        <li class="list-controls__item" data-enabled="' . $isEnable . '">
-            <div class="list-controls__label">
-                <h3>Overflow</h3>
-            </div>
-            <div class="list-controls__button-wrap">
+        <li class="listed-items__item listed-items__item--toggler" data-enabled="' . $isEnable . '">
+            
                 <button
                     name="toggle-btn"
                     type="submit"
                     hx-post="api/add-emails.php"
-                    hx-target=".listed-items"
+                    hx-target="#email-list"
                     hx-swap="innerHTML"
-                    class="list-controls__button list-controls__button--display thm-btn">Toggle View</button>
-            </div>
+                    class="listed-items__button  custom-button">Toggle View</button>
+            
         </li>';
     }
 
     private static function clearButtonHTML(): string
     {
         return '
-            <li class="list-controls__item">
-                <div class="list-controls__label">
-                    <h3>Clear</h3>
-                </div>
-                <div class="list-controls__button-wrap">
+            <li class="listed-items__item listed-items__item--delete">
+                
                     <button
                         hx-post="api/clear-list.php"
-                        hx-target=".listed-items"
+                        hx-target="#email-list"
                         hx-swap="innerHTML"
-                        class="list-controls__button list-controls__button--delete thm-btn">delete all</button>
-                </div>
+                        class="list-controls__button list-controls__button--delete custom-button">delete all</button>
+            
             </li>';
     }
 }

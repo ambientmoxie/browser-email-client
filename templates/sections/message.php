@@ -1,14 +1,11 @@
 <section id="message-area">
-    <div class="section-title">
-        <h1>Message</h1>
+
+    <div id="description" class="wording ">
+        <h2>Message</h2>
+        <p class="wording__text wording__text--fr"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta ipsum quis elit luctus sollicitudin. In volutpat orci vitae sem facilisis, nec ultricies orci sollicitudin. Vivamus gravida, neque eu cursus pretium, nisl nunc faucibus nibh.</p>
+        <p class="wording__text wording__text--en"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta ipsum quis elit luctus sollicitudin. In volutpat orci vitae sem facilisis, nec ultricies orci sollicitudin. Vivamus gravida, neque eu cursus pretium, nisl nunc faucibus nibh.</p>
     </div>
 
-    
-      <div class="block-multiling block-multiling--layout2">
-        <p class="block-multiling__item block-multiling__item--fr">Votre liste d'envoi maintenant complète. Utilisez le formulaire ci-dessous pour rédiger votre e-mail (compatible HTML). Indiquez un objet, puis cliquez sur "Send email".</p>
-        <p class="block-multiling__item block-multiling__item--en">Your mailing list now complete. Use the form below to write your email (HTML compatible). Enter a subject, then click "Send email".</p>
-    </div>
-    
 
     <?php if (isset($_SESSION['log'])): ?>
         <div class="feedback-box feedback-box--<?= htmlspecialchars($_SESSION['log']['type']) ?>">
@@ -18,21 +15,16 @@
         <?php unset($_SESSION['log']); ?>
     <?php endif; ?>
 
-    <form class="custom-form" action="/api/send-email.php" method="POST">
-        <div class="custom-form__group custom-form__group--subject">
-            <label for="">Subject</label>
+    <form class="listed-items" action="/api/send-email.php" method="POST">
+        <div class="listed-items__item listed-items__item--object">
             <input type="text" id="subject" name="subject" placeholder="Object for your message" required />
         </div>
 
-        <div class="custom-form__group custom-form__group--message">
-            <label for="">Message</label>
+        <div class="listed-items__item listed-items__item--message">
             <textarea type="text" id="message" name="message" placeholder="Copy your message (HTML allowed)" required></textarea>
         </div>
-        <div class="custom-form__group custom-form__group--submit">
-            <label for="">Submit</label>
-            <div class="form__submit-wrapper">
-                <button class="thm-btn" id="send-email-btn" type="submit">send email</button>
-            </div>
+        <div class="listed-items__item listed-items__item--submit">
+            <button class="custom-button" id="send-email-btn" type="submit">send email</button>
         </div>
     </form>
 </section>

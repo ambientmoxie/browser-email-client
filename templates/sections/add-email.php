@@ -1,39 +1,29 @@
 <section id="add-email">
-
-    <div class="section-title">
-        <h1>Add email(s)</h1>
+    <div id="description" class="wording ">
+        <h2>Add emails</h2>
+        <p class="wording__text wording__text--fr"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta ipsum quis elit luctus sollicitudin. In volutpat orci vitae sem facilisis, nec ultricies orci sollicitudin. Vivamus gravida, neque eu cursus pretium, nisl nunc faucibus nibh.</p>
+        <p class="wording__text wording__text--en"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta ipsum quis elit luctus sollicitudin. In volutpat orci vitae sem facilisis, nec ultricies orci sollicitudin. Vivamus gravida, neque eu cursus pretium, nisl nunc faucibus nibh.</p>
     </div>
-
-    <div class="block-multiling block-multiling--layout2">
-        <p class="block-multiling__item block-multiling__item--fr">Utilisez la section ci-dessous afin d'ajouter une ou plusieurs adresses email à la liste d'envoi. Les entrées doivent être séparées par une virgule (exemple : johndoe@email.com, janedoe@email.com, etc.). Bientôt: Import de fichiers .csv.</p>
-        <p class="block-multiling__item block-multiling__item--en">Use the section below to add one or more email addresses to the mailing list. Emails must be separated by a comma (e.g. johndoe@email.com, janedoe@email.com, etc.). Coming soon: ability to import a .csv file.</p>
-    </div>
-
-
     <form
-        class="custom-form"
+        id="add-email"
+        class="listed-items"
         hx-post="api/add-emails.php"
-        hx-target=".listed-items"
+        hx-target="#email-list"
         hx-swap="innerHTML"
         hx-on="htmx:afterRequest: this.reset()">
 
-        <div class="custom-form__group custom-form__group--entries">
-            <label for="to_email">Entries</label>
-            <input type="text" id="to_email" name="to_email" placeholder="Enter email(s)" required />
+        <div class="listed-items__item listed-items__item--entry">
+            <textarea type="text" id="to_email" name="to_email" placeholder="Enter email(s)" required></textarea>
         </div>
 
         <div class="custom-form__group custom-form__group--upload" data-enabled="false">
-            <label for="">Upload</label>
             <div class="form__upload-wrapper">
                 <input type="file" id="documents" name="documents[]" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.zip">
-                <label class="thm-btn" id="file" for="documents">Ajouter des documents</label>
+                <label class="custom-button" id="file" for="documents">Ajouter des documents</label>
             </div>
         </div>
         <div class="custom-form__group custom-form__group--submit">
-            <label for="">Submit</label>
-            <div class="form__submit-wrapper">
-                <button class="thm-btn" id="add-email-btn" type="submit">add to sending list</button>
-            </div>
+            <button class="custom-button" id="add-email-btn" type="submit">add to sending list</button>
         </div>
     </form>
 

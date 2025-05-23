@@ -1,7 +1,207 @@
-@use "base/typography";
-@use "base/theme";
-@use "base/global";
-@use "base/layout";
+@use "typography";
+@use "mixins" as *;
 
-@use "components/components";
-// @use "components/header";
+:root {
+  --color-text: #000;
+  --color-background: #fff;
+  --color-disabled: #9d9d9d;
+  --color-success: #57891b;
+  --color-alert: #c4141b;
+  --color-border: var(--color-text);
+
+  --font-size-sm: 1.2rem;
+  --font-size-rg: 1.4rem;
+  --font-size-md: 1.6rem;
+  --font-primary: "SempioneGrotesk", Helvetica, Arial, sans-serif;
+  --font-secondary: "Nitti", "Courier New", Courier, monospace;
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-rg: 1.5rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 5rem;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+
+  font-synthesis: none !important;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  hyphens: auto;
+  line-height: 1.2;
+  color: var(--color-text);
+  font-size: var(--font-size-rg);
+  font-family: var(--font-primary);
+  background-color: var(--color-background);
+}
+
+*[data-enabled="false"] {
+  pointer-events: none;
+  color: var(--color-disabled);
+}
+
+h1 {
+  font-weight: 500;
+  font-size: inherit;
+}
+
+h2 {
+  margin-left: 2rem; // Forced text-indent for border
+  font-size: inherit;
+  width: fit-content;
+  border-bottom: 1px solid var(--color-border);
+  &::first-line {
+    text-transform: capitalize;
+  }
+}
+
+// Global wrapper
+#wrapper {
+  display: grid;
+  max-width: 60rem;
+  gap: var(--space-xl);
+  padding: var(--space-md);
+  margin: var(--space-md) auto;
+  background-color: var(--colors-background);
+
+  > section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-rg);
+  }
+}
+
+// Multilingue paragraph layout
+.wording {
+  display: grid;
+  gap: 1rem;
+  .wording__text--fr {
+    font-weight: 400;
+  }
+  .wording__text--en {
+    font-weight: 500;
+  }
+}
+
+// Reset button + set same style than text
+.custom-button {
+  @include reset-button;
+  font-weight: 500;
+  font-size: inherit;
+  font-family: inherit;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+// Basic version footer layout
+.copyright-footer {
+  display: flex;
+  align-items: center;
+  padding-top: 0.5rem;
+  justify-content: space-between;
+  .copyright-footer__text {
+    color: var(--color-gray);
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500;
+  }
+
+  .copyright-footer__version {
+    padding: 0 0.5rem;
+    font-size: var(--font-size-md);
+    font-family: var(--font-secondary);
+    border: 1px solid var(--color-border-primary);
+  }
+}
+
+// Inputs
+input,
+textarea {
+  background-color: var(--color-background);
+  color: inherit;
+  &::placeholder {
+    color: var(--color-disabled);
+  }
+}
+
+input {
+  @include reset-input;
+  width: 100%;
+}
+textarea {
+  @include reset-textarea;
+  width: 100%;
+  min-height: 20rem;
+  font-family: var(--font-primary);
+  font-size: inherit;
+
+  &::placeholder {
+    font-size: inherit;
+  }
+}
+
+// Listed items
+.listed-items {
+  border: 1px solid var(--color-border);
+  border-left: 0;
+  border-right: 0;
+
+  > * {
+    padding: 0.5rem 0;
+  }
+
+  > *:not(:last-of-type) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .listed-items__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .listed-items__email--empty {
+      color: var(--color-alert);
+      font-weight: 700;
+    }
+  }
+}
+
+// Hidden built-in input file (label hack)
+input[type="file"] {
+  display: none;
+}
+
+// Cartouche
+.feedback-box {
+  margin: auto;
+  color: white;
+  text-align: center;
+  padding: var(--space-sm);
+  text-transform: uppercase;
+  font-family: var(--font-secondary);
+  width: 100%;
+
+  &.feedback-box--success {
+    background-color: var(--color-success);
+  }
+
+  &.feedback-box--error {
+    background-color: var(--color-alert);
+  }
+}
