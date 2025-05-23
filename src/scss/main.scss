@@ -103,6 +103,7 @@ h2 {
   font-weight: 500;
   font-size: inherit;
   font-family: inherit;
+  text-transform: uppercase;
   &::first-letter {
     text-transform: uppercase;
   }
@@ -164,7 +165,7 @@ textarea {
   border-right: 0;
 
   > * {
-    padding: 0.5rem 0;
+    padding: 0.3rem 0;
   }
 
   > *:not(:last-of-type) {
