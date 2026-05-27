@@ -1,0 +1,22 @@
+{
+    "name": "email-sender",
+    "version": "0.0.1",
+    "description": "Basic browser based email sender",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "server:js": "vite",
+        "server:php": "php -S localhost:8888 -t public",
+        "build": "vite build",
+        "dev": "concurrently \"npm run server:js\" \"npm run server:php\" -c yellow,green",
+        "preview": "npm run build && npm run server:php"
+    },
+    "author": "Maxime Benoit",
+    "license": "ISC",
+    "devDependencies": {
+        "concurrently": "^9.2.1",
+        "sass": "^1.99.0",
+        "vite": "^8.0.12",
+        "vite-plugin-full-reload": "^1.2.0"
+    }
+}

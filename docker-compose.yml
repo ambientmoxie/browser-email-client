@@ -1,0 +1,26 @@
+services:
+  php:
+    build: .
+    image: php:8.3-with-composer
+    working_dir: /var/www/html
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/var/www/html
+      - vendor:/var/www/html/vendor
+    command: sh -c "composer install && php -S 0.0.0.0:8888 -t public"
+
+  node:
+    image: node:20-alpine
+    working_dir: /var/www/html
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/var/www/html
+      - node_modules:/var/www/html/node_modules
+    command: sh -c "npm install && npm run server:js"
+
+volumes:
+  node_modules:
+  vendor:
+

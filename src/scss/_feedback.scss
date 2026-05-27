@@ -1,0 +1,17 @@
+#feedback {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+.feedback {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-input);
+    color: var(--color-white);
+
+    &--success { background-color: var(--color-success); }
+    &--error   { background-color: var(--color-error); }
+}

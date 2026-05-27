@@ -1,0 +1,111 @@
+@mixin raised {
+    border-top: 1px solid var(--color-gray-300);
+    border-left: 1px solid var(--color-gray-300);
+    border-bottom: 1px solid var(--color-black);
+    border-right: 1px solid var(--color-black);
+}
+
+@mixin pressed {
+    border-top: 1px solid var(--color-black);
+    border-left: 1px solid var(--color-black);
+    border-bottom: 1px solid var(--color-gray-300);
+    border-right: 1px solid var(--color-gray-300);
+}
+
+.module {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-ui);
+    width: 100%;
+    display: grid;
+    gap: var(--gap);
+    padding: var(--gap);
+    @include raised;
+    background-color: var(--color-white);
+
+    &__title {
+        padding: 0.6rem;
+        text-transform: uppercase;
+        font-size: inherit;
+        background-image: url("/assets/img/pattern.png");
+        background-size: 8px 4px;
+    }
+
+    &__info {
+        @include pressed;
+        padding: var(--gap);
+        height: var(--control-height);
+        display: flex;
+        align-items: center;
+    }
+
+    &__email-list {
+        display: grid;
+        gap: var(--gap);
+    }
+
+    &__email-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 15rem;
+        gap: var(--gap);
+    }
+
+    &__email {
+        @include pressed;
+        padding: var(--gap);
+        background-color: var(--color-white);
+        height: var(--control-height);
+        display: flex;
+        align-items: center;
+    }
+
+    &__input,
+    &__textarea {
+        @include pressed;
+        font-family: var(--font-mono);
+        padding: var(--gap);
+        background-color: var(--color-white);
+        font-size: var(--font-size-input);
+    }
+
+    &__input {
+        height: var(--control-height);
+    }
+
+    &__textarea {
+        &--add {
+            height: 10rem;
+        }
+        &--message {
+            height: 50rem;
+        }
+    }
+
+    &__action {
+        display: flex;
+        height: var(--control-height);
+        gap: var(--gap);
+
+        > * {
+            flex: 1;
+        }
+    }
+
+    &__button {
+        &--csv {
+            @include pressed;
+            background-color: var(--color-white);
+        }
+
+        &--add,
+        &--send,
+        &--delete {
+            @include raised;
+            background-color: var(--color-gray-100);
+
+            &:hover {
+                @include pressed;
+                background-color: var(--color-gray-300);
+            }
+        }
+    }
+}
