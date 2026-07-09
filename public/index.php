@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . "/../src/php/helpers/env-loader.php";
 require_once __DIR__ . "/../src/php/helpers/session-helper.php";
 SessionHelper::start();
 require_once __DIR__ . "/../src/php/partials/head.php";

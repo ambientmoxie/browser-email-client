@@ -11,20 +11,22 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicon/site.webmanifest">
 
-    <?php
-    $devSocket = @fsockopen('localhost', 5173, $errno, $errstr, 0.5);
-    if ($devSocket):
-        fclose($devSocket);
+    <?php if (!empty($_ENV['VITE_DEV'])):
+        $viteUrl = $_ENV['VITE_DEV_URL'] ?? 'http://localhost:5173';
     ?>
-        <script type="module" src="http://localhost:5173/@vite/client"></script>
-        <script type="module" src="http://localhost:5173/src/js/main.js"></script>
+        <script type="module" src="<?= htmlspecialchars('http://localhost:5173') ?>/@vite/client"></script>
+        <script type="module" src="<?= htmlspecialchars('http://localhost:5173') ?>/src/js/main.js"></script>
     <?php else:
         $manifest = json_decode(file_get_contents(__DIR__ . '/../../../public/build/.vite/manifest.json'), true);
         $entry = $manifest['src/js/main.js'];
     ?>
-        <link rel="stylesheet" href="/build/<?= $entry['css'][0] ?>">
+        <?php if (!empty($entry['css'])): foreach ($entry['css'] as $css): ?>
+                <link rel="stylesheet" href="/build/<?= $css ?>">
+        <?php endforeach;
+        endif; ?>
         <script type="module" src="/build/<?= $entry['file'] ?>"></script>
     <?php endif; ?>
+
     <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
 </head>
 

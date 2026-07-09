@@ -8,6 +8,8 @@ services:
     volumes:
       - .:/var/www/html
       - vendor:/var/www/html/vendor
+    environment:
+      VITE_DEV: true
     command: sh -c "composer install && php -S 0.0.0.0:8888 -t public"
 
   node:

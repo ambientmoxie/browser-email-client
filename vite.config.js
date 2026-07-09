@@ -5,9 +5,7 @@ export default defineConfig({
     plugins: [fullReload("**/*.php")],
     server: {
         host: "0.0.0.0",
-        hmr: {
-            host: "localhost",
-        },
+        cors: true,
     },
     publicDir: false,
     build: {
